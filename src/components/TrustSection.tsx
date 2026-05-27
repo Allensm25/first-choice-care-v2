@@ -55,10 +55,10 @@ export default function TrustSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Stats bar */}
         <motion.div
-          initial={{ opacity: 0, y: 50, scale: 0.95, filter: "blur(10px)" }}
-          whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-24 rounded-2xl p-8"
           style={{ border: "1px solid rgba(134,176,96,0.25)", background: "rgba(134,176,96,0.07)" }}
         >
@@ -84,10 +84,10 @@ export default function TrustSection() {
 
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 60, filter: "blur(12px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 36 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-14"
         >
           <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6" style={{ background: "rgba(27,46,9,0.06)", border: "1px solid rgba(27,46,9,0.14)" }}>
@@ -115,10 +115,10 @@ export default function TrustSection() {
             return (
               <motion.div
                 key={d.title}
-                initial={{ opacity: 0, y: 50, scale: 0.93, filter: "blur(8px)" }}
-                whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ delay: i * 0.1, duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ delay: i * 0.08, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                 className="group flex gap-4 rounded-xl p-6 transition-all duration-400"
                 style={{ border: "1px solid rgba(134,176,96,0.20)", background: "rgba(134,176,96,0.05)" }}
                 onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(134,176,96,0.10)")}

@@ -3,7 +3,6 @@
 import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { MessageCircle, ClipboardList, HeartHandshake } from "lucide-react"
-import MagneticButton from "@/components/MagneticButton"
 
 const steps = [
   {
@@ -48,10 +47,10 @@ export default function HowItWorksSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 60, filter: "blur(12px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 36 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6" style={{ background: "rgba(154,120,40,0.12)", border: "1px solid rgba(154,120,40,0.35)" }}>
@@ -123,10 +122,10 @@ export default function HowItWorksSection() {
               return (
                 <motion.div
                   key={s.step}
-                  initial={{ opacity: 0, y: 70, scale: 0.90, filter: "blur(12px)" }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.9, delay: i * 0.18, ease: [0.16, 1, 0.3, 1] }}
+                  transition={{ duration: 0.6, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ y: -4, transition: { duration: 0.3 } }}
                   className="relative flex flex-col items-center text-center gap-5 rounded-2xl p-8 backdrop-blur-sm transition-shadow duration-500"
                   style={{ border: "1px solid rgba(134,176,96,0.22)", background: "rgba(134,176,96,0.06)" }}
@@ -153,21 +152,19 @@ export default function HowItWorksSection() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mt-14"
         >
-          <MagneticButton>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-sm transition-all duration-300 hover:scale-105"
-              style={{ background: "linear-gradient(135deg, var(--brand-olive-lt), var(--brand-olive-dark))", color: "white" }}
-            >
-              Start Step 1 — It&apos;s Free
-            </a>
-          </MagneticButton>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-sm text-white transition-opacity duration-200 hover:opacity-90"
+            style={{ background: "linear-gradient(135deg, var(--brand-olive-lt), var(--brand-olive-dark))", boxShadow: "0 4px 20px rgba(78,122,40,0.25)" }}
+          >
+            Start Step 1 — It&apos;s Free
+          </a>
         </motion.div>
       </div>
     </section>

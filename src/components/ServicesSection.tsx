@@ -2,8 +2,6 @@
 
 import { motion, type Variants } from "framer-motion"
 import { Baby, Stethoscope, Heart, UserCheck, Users, Clock } from "lucide-react"
-import TiltCard from "@/components/TiltCard"
-import MagneticButton from "@/components/MagneticButton"
 
 const services = [
   {
@@ -68,8 +66,8 @@ const containerVariants: Variants = {
 }
 
 const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 60, scale: 0.92, filter: "blur(10px)" },
-  visible: { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", transition: { duration: 0.85, ease: [0.16, 1, 0.3, 1] } },
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
 }
 
 export default function ServicesSection() {
@@ -84,10 +82,10 @@ export default function ServicesSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 60, filter: "blur(12px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6" style={{ background: "rgba(134,176,96,0.14)", border: "1px solid rgba(134,176,96,0.40)" }}>
@@ -120,14 +118,14 @@ export default function ServicesSection() {
             const Icon = service.icon
             return (
               <motion.div key={service.title} variants={cardVariants}>
-                <TiltCard
-                  intensity={6}
-                  className="group relative rounded-2xl p-7 flex flex-col gap-5 cursor-default transition-all duration-500 h-full"
+                <div
+                  className="group relative rounded-2xl p-7 flex flex-col gap-5 cursor-default h-full transition-shadow duration-300"
                   style={{
                     background: `rgba(${service.rgb},0.07)`,
                     border: `1px solid rgba(${service.rgb},0.22)`,
-                    transformStyle: "preserve-3d",
                   }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.boxShadow = `0 8px 32px rgba(${service.rgb},0.18)` }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.boxShadow = "none" }}
                 >
                   {/* Top accent line */}
                   <div
@@ -141,7 +139,6 @@ export default function ServicesSection() {
                       style={{
                         background: `rgba(${service.rgb},0.12)`,
                         border: `1px solid rgba(${service.rgb},0.30)`,
-                        transform: "translateZ(20px)",
                       }}
                     >
                       <Icon className="w-5 h-5" style={{ color: `rgb(${service.rgb})` }} />
@@ -158,7 +155,7 @@ export default function ServicesSection() {
                     </span>
                   </div>
 
-                  <div className="flex flex-col gap-2" style={{ transform: "translateZ(10px)" }}>
+                  <div className="flex flex-col gap-2">
                     <h3 className="text-lg font-bold" style={{ color: "var(--text-primary)" }}>{service.title}</h3>
                     <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
                       {service.description}
@@ -173,31 +170,27 @@ export default function ServicesSection() {
                       </li>
                     ))}
                   </ul>
-                </TiltCard>
+                </div>
               </motion.div>
             )
           })}
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
           className="text-center mt-14"
         >
           <p className="text-sm mb-4" style={{ color: "var(--text-faint)" }}>Not sure which service fits your situation?</p>
-          <MagneticButton>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-semibold text-sm hover:scale-105 transition-all duration-300"
-              style={{ background: "linear-gradient(135deg, var(--brand-olive-lt), var(--brand-olive-dark))", color: "white" }}
-              onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 0 24px rgba(78,122,40,0.35)")}
-              onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
-            >
-              Get a Free Consultation
-            </a>
-          </MagneticButton>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-semibold text-sm text-white transition-opacity duration-200 hover:opacity-90"
+            style={{ background: "linear-gradient(135deg, var(--brand-olive-lt), var(--brand-olive-dark))", boxShadow: "0 4px 20px rgba(78,122,40,0.25)" }}
+          >
+            Get a Free Consultation
+          </a>
         </motion.div>
       </div>
     </section>

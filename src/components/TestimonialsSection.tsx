@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion"
 import { Star, Quote } from "lucide-react"
-import TiltCard from "@/components/TiltCard"
 
 const testimonials = [
   {
@@ -75,10 +74,10 @@ export default function TestimonialsSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 60, filter: "blur(12px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 36 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6" style={{ background: "rgba(154,120,40,0.12)", border: "1px solid rgba(154,120,40,0.35)" }}>
@@ -98,33 +97,30 @@ export default function TestimonialsSection() {
           </p>
         </motion.div>
 
-        <div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          style={{ perspective: "1400px" }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
             <motion.div
               key={t.name}
-              initial={{ opacity: 0, y: 70, scale: 0.92, filter: "blur(10px)" }}
-              whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+              initial={{ opacity: 0, y: 36 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ delay: i * 0.1, duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ delay: i * 0.08, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
             >
-              <TiltCard
-                intensity={5}
-                className="relative rounded-2xl p-7 flex flex-col gap-5 h-full"
+              <div
+                className="relative rounded-2xl p-7 flex flex-col gap-5 h-full transition-shadow duration-300"
                 style={{
                   border: "1px solid rgba(154,120,40,0.18)",
                   background: "rgba(154,120,40,0.05)",
-                  transformStyle: "preserve-3d",
                 }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.boxShadow = "0 8px 32px rgba(154,120,40,0.14)" }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.boxShadow = "none" }}
               >
                 <Quote
                   className="absolute top-5 right-6 w-8 h-8"
-                  style={{ color: "rgba(27,46,9,0.06)", transform: "translateZ(0px)" }}
+                  style={{ color: "rgba(27,46,9,0.06)" }}
                 />
 
-                <div className="flex flex-col gap-2" style={{ transform: "translateZ(12px)" }}>
+                <div className="flex flex-col gap-2">
                   <StarRow count={t.stars} />
                   <p className="text-sm leading-relaxed italic" style={{ color: "var(--text-body)" }}>
                     &ldquo;{t.quote}&rdquo;
@@ -133,7 +129,7 @@ export default function TestimonialsSection() {
 
                 <div
                   className="flex items-center gap-3 mt-auto pt-4"
-                  style={{ borderTop: "1px solid rgba(27,46,9,0.08)", transform: "translateZ(8px)" }}
+                  style={{ borderTop: "1px solid rgba(27,46,9,0.08)" }}
                 >
                   <div
                     className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0"
@@ -146,7 +142,7 @@ export default function TestimonialsSection() {
                     <p className="text-xs" style={{ color: "var(--text-faint)" }}>{t.location} · {t.service}</p>
                   </div>
                 </div>
-              </TiltCard>
+              </div>
             </motion.div>
           ))}
         </div>
