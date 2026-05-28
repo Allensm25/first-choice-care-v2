@@ -8,7 +8,8 @@ export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
 export default function Image() {
-  const logoData = fs.readFileSync(path.join(process.cwd(), "public", "fcc-logo.png"))
+  // Use the pre-processed olive logo (transparent bg, olive tones) — no mix-blend-mode needed
+  const logoData = fs.readFileSync(path.join(process.cwd(), "public", "fcc-logo-olive.png"))
   const logoSrc = `data:image/png;base64,${logoData.toString("base64")}`
 
   return new ImageResponse(
@@ -36,7 +37,7 @@ export default function Image() {
             width: "900px",
             height: "900px",
             borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(134,176,96,0.14) 0%, transparent 65%)",
+            background: "radial-gradient(circle, rgba(134,176,96,0.18) 0%, transparent 65%)",
             display: "flex",
           }}
         />
@@ -46,7 +47,7 @@ export default function Image() {
         {/* Bottom bar */}
         <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "6px", background: "linear-gradient(to right, #4E7A28, #9A7828)", display: "flex" }} />
 
-        {/* Left — logo */}
+        {/* Left — olive logo on cream (transparent bg, no blend mode needed) */}
         <div
           style={{
             display: "flex",
@@ -59,9 +60,9 @@ export default function Image() {
         >
           <img
             src={logoSrc}
-            width={280}
-            height={280}
-            style={{ objectFit: "contain", mixBlendMode: "multiply" }}
+            width={300}
+            height={300}
+            style={{ objectFit: "contain" }}
           />
         </div>
 
