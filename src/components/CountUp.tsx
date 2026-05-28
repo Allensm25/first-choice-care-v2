@@ -14,7 +14,7 @@ interface Props {
 export default function CountUp({ target, suffix = "", duration = 2.2, className, style }: Props) {
   const [count, setCount] = useState(0)
   const ref = useRef<HTMLSpanElement>(null)
-  const inView = useInView(ref, { once: true, margin: "-60px" })
+  const inView = useInView(ref, { once: true, margin: "0px" })
 
   useEffect(() => {
     if (!inView) return

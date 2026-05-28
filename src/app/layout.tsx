@@ -20,7 +20,7 @@ const playfairDisplay = Playfair_Display({
   display: "swap",
 })
 
-const siteUrl = "https://firstchoicecare.com"
+const siteUrl = "https://first-choice-care.vercel.app"
 
 export const metadata: Metadata = {
   title: "First Choice Care | Atlanta Home Health",

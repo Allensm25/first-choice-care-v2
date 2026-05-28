@@ -99,11 +99,11 @@ export default function HeroSection() {
             initial={{ scale: 0.92 }}
             animate={{ scale: 1 }}
             transition={{ duration: 1.1, delay: 0.25 }}
-            className="relative h-[300px] lg:h-[340px] w-full"
+            className="relative h-[240px] sm:h-[270px] lg:h-[340px] w-full"
             style={{ y: sceneY, opacity: heroOpacity }}
           >
-            {/* Shift entire cluster — rings, canvas, and overlay move together */}
-            <div className="absolute inset-0" style={{ transform: "translateX(-160px) translateY(110px)" }}>
+            {/* Shift entire cluster — centered on mobile, offset on desktop via .hero-cluster */}
+            <div className="hero-cluster">
 
             {/* Layer 1 — Glow halo + spinning HTML orbital dots (behind canvas) */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 1 }}>
@@ -182,7 +182,7 @@ export default function HeroSection() {
           <motion.div className="flex flex-col gap-8" style={{ y: textY, opacity: heroOpacity, position: "relative", zIndex: 30 }}>
 
             {/* Headline */}
-            <h1 className="text-5xl md:text-6xl xl:text-7xl font-extrabold leading-[1.1] tracking-tight" style={{ color: "var(--text-primary)" }}>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold leading-[1.1] tracking-tight" style={{ color: "var(--text-primary)" }}>
               <SplitText text="Care That Comes" delay={0.18} stagger={0.07} />{" "}
               <span
                 className="text-transparent bg-clip-text"
@@ -199,7 +199,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-lg leading-relaxed max-w-md font-medium"
+              className="text-base sm:text-lg leading-relaxed max-w-md font-medium"
               style={{ color: "rgba(27,46,9,0.82)" }}
             >
               First Choice Care delivers compassionate, professional home health services to children
