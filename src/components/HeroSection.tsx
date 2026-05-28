@@ -92,14 +92,14 @@ export default function HeroSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center w-full py-16">
 
         {/* ── Left column: scene on top, text below ── */}
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 lg:gap-1">
 
           {/* 3D scene + orbital rings — three layers all centered at same point */}
           <motion.div
             initial={{ scale: 0.92 }}
             animate={{ scale: 1 }}
             transition={{ duration: 1.1, delay: 0.25 }}
-            className="relative h-[240px] sm:h-[270px] lg:h-[340px] w-full"
+            className="relative h-[240px] sm:h-[270px] lg:h-[260px] w-full"
             style={{ y: sceneY, opacity: heroOpacity }}
           >
             {/* Shift entire cluster — centered on mobile, offset on desktop via .hero-cluster */}
