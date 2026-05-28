@@ -6,7 +6,7 @@ import { useState } from "react"
 
 const contactInfo = [
   { icon: Phone, label: "Phone",        value: "(216) 324-0660",           href: "tel:+12163240660" },
-  { icon: Mail,  label: "Email",        value: "infofirstccare@gmail.com",  href: "mailto:infofirstccare@gmail.com" },
+  { icon: Mail,  label: "Email",        value: "info@firstccare.com",  href: "mailto:info@firstccare.com" },
   { icon: MapPin, label: "Location",    value: "Atlanta, Georgia",         href: "#" },
   { icon: Clock, label: "Availability", value: "24/7 — Always Open",      href: "#" },
 ]

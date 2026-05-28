@@ -122,12 +122,12 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:infofirstccare@gmail.com" className="flex items-center gap-2.5 text-sm transition-colors duration-200" style={{ color: "var(--text-muted)" }}
+                <a href="mailto:info@firstccare.com" className="flex items-center gap-2.5 text-sm transition-colors duration-200" style={{ color: "var(--text-muted)" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "var(--brand-olive-lt)")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
                 >
                   <Mail className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "var(--brand-olive-lt)" }} />
-                  infofirstccare@gmail.com
+                  info@firstccare.com
                 </a>
               </li>
               <li className="flex items-start gap-2.5 text-sm" style={{ color: "var(--text-muted)" }}>

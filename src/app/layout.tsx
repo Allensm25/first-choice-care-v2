@@ -49,7 +49,7 @@ const jsonLd = {
   "description": "Compassionate home health services for children and adults across the Atlanta metro area — GAPP pediatric care, skilled nursing, and private pay.",
   "url": siteUrl,
   "telephone": "+12163240660",
-  "email": "infofirstccare@gmail.com",
+  "email": "info@firstccare.com",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Atlanta",
