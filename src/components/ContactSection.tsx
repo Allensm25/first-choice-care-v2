@@ -23,15 +23,34 @@ const services = [
 
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState("")
   const [form, setForm] = useState({ name: "", phone: "", email: "", service: "", message: "" })
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    setSubmitted(true)
+    setSubmitting(true)
+    setError("")
+    try {
+      const res = await fetch("https://formspree.io/f/xjgzjldl", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(form),
+      })
+      if (res.ok) {
+        setSubmitted(true)
+      } else {
+        setError("Something went wrong. Please call us directly at (216) 324-0660.")
+      }
+    } catch {
+      setError("Unable to send. Please call us directly at (216) 324-0660.")
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   const inputStyle = {
@@ -206,12 +225,17 @@ export default function ContactSection() {
 
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02]"
+                  disabled={submitting}
+                  className="w-full flex items-center justify-center gap-2 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
                   style={{ background: "linear-gradient(135deg, var(--brand-olive-lt), var(--brand-olive-dark))", color: "white" }}
                 >
                   <Send className="w-4 h-4" />
-                  Send Message — It&apos;s Free
+                  {submitting ? "Sending…" : "Send Message — It's Free"}
                 </button>
+
+                {error && (
+                  <p className="text-center text-sm font-medium" style={{ color: "#b91c1c" }}>{error}</p>
+                )}
 
                 <p className="text-center text-xs" style={{ color: "var(--text-hint)" }}>
                   We never share your information. 100% confidential.
