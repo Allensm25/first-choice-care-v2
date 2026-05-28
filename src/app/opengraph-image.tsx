@@ -8,9 +8,7 @@ export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
 export default function Image() {
-  // Read logo from public folder and encode as base64 data URL
-  const logoPath = path.join(process.cwd(), "public", "fcc-logo.png")
-  const logoData = fs.readFileSync(logoPath)
+  const logoData = fs.readFileSync(path.join(process.cwd(), "public", "fcc-logo.png"))
   const logoSrc = `data:image/png;base64,${logoData.toString("base64")}`
 
   return new ImageResponse(
@@ -39,46 +37,45 @@ export default function Image() {
             height: "900px",
             borderRadius: "50%",
             background: "radial-gradient(circle, rgba(134,176,96,0.14) 0%, transparent 65%)",
+            display: "flex",
           }}
         />
 
         {/* Top bar */}
-        <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "6px", background: "linear-gradient(to right, #4E7A28, #9A7828)" }} />
+        <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "6px", background: "linear-gradient(to right, #4E7A28, #9A7828)", display: "flex" }} />
         {/* Bottom bar */}
-        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "6px", background: "linear-gradient(to right, #4E7A28, #9A7828)" }} />
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "6px", background: "linear-gradient(to right, #4E7A28, #9A7828)", display: "flex" }} />
 
-        {/* Left side — logo */}
+        {/* Left — logo */}
         <div
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            width: "420px",
+            width: "400px",
             height: "100%",
             flexShrink: 0,
           }}
         >
-          {/* mix-blend-mode: multiply makes white bg invisible on cream */}
           <img
             src={logoSrc}
-            width={300}
-            height={300}
+            width={280}
+            height={280}
             style={{ objectFit: "contain", mixBlendMode: "multiply" }}
           />
         </div>
 
         {/* Divider */}
-        <div style={{ width: "1px", height: "340px", background: "rgba(134,176,96,0.35)", flexShrink: 0 }} />
+        <div style={{ width: "1px", height: "340px", background: "rgba(134,176,96,0.35)", flexShrink: 0, display: "flex" }} />
 
-        {/* Right side — text */}
+        {/* Right — text */}
         <div
           style={{
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            padding: "0 64px",
+            padding: "0 56px",
             flex: 1,
-            gap: "0px",
           }}
         >
           {/* Badge */}
@@ -92,23 +89,28 @@ export default function Image() {
               borderRadius: "100px",
               padding: "7px 18px",
               marginBottom: "24px",
-              width: "fit-content",
+              alignSelf: "flex-start",
             }}
           >
-            <div style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#4E7A28" }} />
+            <div style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#4E7A28", display: "flex" }} />
             <span style={{ fontSize: "13px", fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", color: "#4E7A28" }}>
               Atlanta Home Health Care
             </span>
           </div>
 
-          {/* Name */}
-          <div style={{ fontSize: "68px", fontWeight: 800, color: "#1B2E09", lineHeight: 1.05, letterSpacing: "-0.03em", marginBottom: "16px" }}>
-            First Choice <span style={{ color: "#4E7A28" }}>Care</span>
+          {/* Name — two spans in a flex row to avoid mixed children issue */}
+          <div style={{ display: "flex", alignItems: "baseline", gap: "18px", marginBottom: "16px" }}>
+            <span style={{ fontSize: "66px", fontWeight: 800, color: "#1B2E09", lineHeight: 1.05, letterSpacing: "-0.03em" }}>
+              First Choice
+            </span>
+            <span style={{ fontSize: "66px", fontWeight: 800, color: "#4E7A28", lineHeight: 1.05, letterSpacing: "-0.03em" }}>
+              Care
+            </span>
           </div>
 
           {/* Tagline */}
-          <div style={{ fontSize: "20px", color: "rgba(27,46,9,0.62)", lineHeight: 1.5, marginBottom: "36px", maxWidth: "480px" }}>
-            Compassionate home health services — GAPP pediatric care &amp; private pay for Atlanta families.
+          <div style={{ display: "flex", fontSize: "19px", color: "rgba(27,46,9,0.62)", lineHeight: 1.5, marginBottom: "36px" }}>
+            <span>Compassionate home health — GAPP pediatric care &amp; private pay for Atlanta families.</span>
           </div>
 
           {/* Stats */}
