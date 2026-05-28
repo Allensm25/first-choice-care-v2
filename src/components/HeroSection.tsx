@@ -37,7 +37,7 @@ export default function HeroSection() {
     <section
       ref={sectionRef}
       id="home"
-      className="relative min-h-screen flex items-center pt-20 overflow-hidden"
+      className="relative min-h-screen flex items-center pt-32 lg:pt-20 overflow-hidden"
       style={{ background: "var(--brand-dark)" }}
     >
       {/* Background atmosphere */}
