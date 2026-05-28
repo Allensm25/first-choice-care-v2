@@ -113,21 +113,21 @@ export default function Footer() {
             <h4 className="font-semibold text-sm" style={{ color: "var(--text-primary)" }}>Contact Us</h4>
             <ul className="flex flex-col gap-3">
               <li>
-                <a href="tel:+14045551234" className="flex items-center gap-2.5 text-sm transition-colors duration-200" style={{ color: "var(--text-muted)" }}
+                <a href="tel:+12163240660" className="flex items-center gap-2.5 text-sm transition-colors duration-200" style={{ color: "var(--text-muted)" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "var(--brand-olive-lt)")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
                 >
                   <Phone className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "var(--brand-olive-lt)" }} />
-                  (404) 555-1234
+                  (216) 324-0660
                 </a>
               </li>
               <li>
-                <a href="mailto:info@firstchoicecare.com" className="flex items-center gap-2.5 text-sm transition-colors duration-200" style={{ color: "var(--text-muted)" }}
+                <a href="mailto:infofirstccare@gmail.com" className="flex items-center gap-2.5 text-sm transition-colors duration-200" style={{ color: "var(--text-muted)" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "var(--brand-olive-lt)")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
                 >
                   <Mail className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "var(--brand-olive-lt)" }} />
-                  info@firstchoicecare.com
+                  infofirstccare@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-2.5 text-sm" style={{ color: "var(--text-muted)" }}>

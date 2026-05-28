@@ -48,8 +48,8 @@ const jsonLd = {
   "name": "First Choice Care",
   "description": "Compassionate home health services for children and adults across the Atlanta metro area — GAPP pediatric care, skilled nursing, and private pay.",
   "url": siteUrl,
-  "telephone": "+14045551234",
-  "email": "info@firstchoicecare.com",
+  "telephone": "+12163240660",
+  "email": "infofirstccare@gmail.com",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Atlanta",

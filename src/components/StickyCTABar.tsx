@@ -33,7 +33,7 @@ export default function StickyCTABar() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
             {/* Phone */}
             <a
-              href="tel:+14045551234"
+              href="tel:+12163240660"
               className="hidden sm:flex items-center gap-2.5 transition-colors duration-200"
               style={{ color: "var(--text-muted)" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "var(--brand-olive-lt)")}
@@ -46,13 +46,13 @@ export default function StickyCTABar() {
                 <Phone className="w-3.5 h-3.5" style={{ color: "var(--brand-olive-lt)" }} />
               </div>
               <span className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
-                (404) 555-1234
+                (216) 324-0660
               </span>
             </a>
 
             {/* SMS link */}
             <a
-              href="sms:+14045551234"
+              href="sms:+12163240660"
               className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 hover:scale-105 flex-shrink-0"
               style={{ background: "rgba(134,176,96,0.12)", border: "1px solid rgba(134,176,96,0.35)", color: "var(--brand-olive-lt)" }}
             >
@@ -69,7 +69,7 @@ export default function StickyCTABar() {
             {/* CTAs */}
             <div className="flex items-center gap-3 ml-auto">
               <a
-                href="tel:+14045551234"
+                href="tel:+12163240660"
                 className="sm:hidden flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-all duration-300"
                 style={{ background: "rgba(134,176,96,0.12)", border: "1px solid rgba(134,176,96,0.30)", color: "var(--brand-olive-lt)" }}
               >

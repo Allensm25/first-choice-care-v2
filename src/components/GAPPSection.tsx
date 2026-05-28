@@ -96,7 +96,7 @@ export default function GAPPSection() {
                 Apply for GAPP <ArrowRight className="w-4 h-4" />
               </a>
               <a
-                href="tel:+14045551234"
+                href="tel:+12163240660"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 hover:opacity-80"
                 style={{ border: "1px solid rgba(134,176,96,0.45)", color: "var(--brand-olive-lt)" }}
               >
@@ -155,8 +155,8 @@ export default function GAPPSection() {
               </div>
               <div>
                 <p className="text-xs" style={{ color: "var(--text-faint)" }}>Questions about GAPP? Call us directly</p>
-                <a href="tel:+14045551234" className="font-semibold text-sm transition-opacity hover:opacity-80" style={{ color: "var(--text-primary)" }}>
-                  (404) 555-1234
+                <a href="tel:+12163240660" className="font-semibold text-sm transition-opacity hover:opacity-80" style={{ color: "var(--text-primary)" }}>
+                  (216) 324-0660
                 </a>
               </div>
             </div>

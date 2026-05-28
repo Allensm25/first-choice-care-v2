@@ -143,8 +143,8 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Layer 2 — Three.js canvas (desktop only — skips ~1.5MB JS bundle on mobile) */}
-            {mounted && isDesktop && (
+            {/* Layer 2 — Three.js canvas (rings + particles) */}
+            {mounted && (
               <div className="absolute inset-0" style={{ zIndex: 10 }}>
                 <HomeScene />
               </div>

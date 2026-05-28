@@ -5,8 +5,8 @@ import { Phone, Mail, MapPin, Clock, Send } from "lucide-react"
 import { useState } from "react"
 
 const contactInfo = [
-  { icon: Phone, label: "Phone",        value: "(404) 555-1234",          href: "tel:+14045551234" },
-  { icon: Mail,  label: "Email",        value: "info@firstchoicecare.com", href: "mailto:info@firstchoicecare.com" },
+  { icon: Phone, label: "Phone",        value: "(216) 324-0660",           href: "tel:+12163240660" },
+  { icon: Mail,  label: "Email",        value: "infofirstccare@gmail.com",  href: "mailto:infofirstccare@gmail.com" },
   { icon: MapPin, label: "Location",    value: "Atlanta, Georgia",         href: "#" },
   { icon: Clock, label: "Availability", value: "24/7 — Always Open",      href: "#" },
 ]
