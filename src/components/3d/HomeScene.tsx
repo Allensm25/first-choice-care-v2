@@ -10,7 +10,8 @@ const mouse = { x: 0, y: 0 }
 /* Mouse-reactive warm particles */
 function WarmParticles() {
   const ref = useRef<THREE.Points>(null)
-  const count = 320
+  const frameRef = useRef(0)
+  const count = 180          // reduced from 320 — fewer particles, same visual effect
   const { camera } = useThree()
 
   const { positions, colors, origPositions } = useMemo(() => {
@@ -39,6 +40,10 @@ function WarmParticles() {
 
   useFrame((state) => {
     if (!ref.current) return
+    // Skip every other frame — halves main-thread cost with no visible difference
+    frameRef.current++
+    if (frameRef.current % 2 !== 0) return
+
     const t = state.clock.elapsedTime
 
     // Gentle base rotation
@@ -115,7 +120,7 @@ function FloatingRing({
 
   return (
     <mesh ref={mesh} rotation={[tiltX, 0, tiltZ]} material={mat}>
-      <torusGeometry args={[radius, tube, 24, 120]} />
+      <torusGeometry args={[radius, tube, 16, 64]} />
     </mesh>
   )
 }
@@ -166,8 +171,10 @@ export default function HomeScene() {
   return (
     <Canvas
       camera={{ position: [0, 0, 10], fov: 52 }}
+      dpr={[1, 1.5]}
+      performance={{ min: 0.5 }}
       style={{ background: "transparent" }}
-      gl={{ alpha: true }}
+      gl={{ alpha: true, antialias: false, powerPreference: "low-power" }}
       onPointerMove={(e) => {
         const rect = (e.currentTarget as HTMLElement).getBoundingClientRect()
         mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1

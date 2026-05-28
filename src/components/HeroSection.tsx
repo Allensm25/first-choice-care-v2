@@ -18,7 +18,16 @@ const stats = [
 
 export default function HeroSection() {
   const [mounted, setMounted] = useState(false)
-  useEffect(() => setMounted(true), [])
+  const [isDesktop, setIsDesktop] = useState(false)
+  const [videoReady, setVideoReady] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+    setIsDesktop(window.innerWidth >= 1024)
+    // Delay video load until page is interactive — doesn't affect visual load order
+    const t = setTimeout(() => setVideoReady(true), 1800)
+    return () => clearTimeout(t)
+  }, [])
 
   const sectionRef = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({
@@ -77,16 +86,17 @@ export default function HeroSection() {
           WebkitMaskImage: "radial-gradient(ellipse 95% 88% at 50% 50%, black 30%, rgba(0,0,0,0.7) 55%, transparent 82%)",
         }}
       >
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/FCC-Hero-V3-4K.mov" type="video/quicktime" />
-          <source src="/FCC-Hero-V3-4K.mov" type="video/mp4" />
-        </video>
+        {videoReady && (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/FCC-Hero-V3-4K.mov" type="video/mp4" />
+          </video>
+        )}
       </motion.div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center w-full py-16">
@@ -133,8 +143,8 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Layer 2 — Three.js canvas (transparent bg, renders over HTML rings) */}
-            {mounted && (
+            {/* Layer 2 — Three.js canvas (desktop only — skips ~1.5MB JS bundle on mobile) */}
+            {mounted && isDesktop && (
               <div className="absolute inset-0" style={{ zIndex: 10 }}>
                 <HomeScene />
               </div>
